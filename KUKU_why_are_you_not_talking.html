@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>KUKU — Ek Baat Puchni Thi ❤️</title>
+<meta name="theme-color" content="#120b1f">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;background:#090711;color:#fff;font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-3;
+  background:
+    radial-gradient(circle at 15% 15%,rgba(255,91,145,.20),transparent 30%),
+    radial-gradient(circle at 85% 25%,rgba(145,87,255,.18),transparent 32%),
+    radial-gradient(circle at 50% 90%,rgba(255,178,80,.10),transparent 28%),
+    #090711;
+}
+.noise{position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.orb{position:fixed;border-radius:50%;filter:blur(70px);opacity:.35;z-index:-2;animation:float 9s ease-in-out infinite}
+.o1{width:180px;height:180px;background:#ff4f91;left:-70px;top:25%}.o2{width:200px;height:200px;background:#7347ff;right:-80px;top:55%;animation-delay:-3s}
+@keyframes float{50%{transform:translateY(-30px) scale(1.08)}}
+
+.screen{width:100%;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px}
+.card{width:min(680px,100%);position:relative}
+.eyebrow{display:flex;align-items:center;gap:9px;color:#ff9fc1;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.dot{width:8px;height:8px;border-radius:50%;background:#ff5d98;box-shadow:0 0 18px #ff5d98;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.35;transform:scale(.65)}}
+h1{font-family:'Playfair Display',serif;font-size:clamp(44px,12vw,78px);line-height:.98;letter-spacing:-2px;margin-bottom:22px}
+.gradient{background:linear-gradient(100deg,#fff 10%,#ff9cc0 50%,#c4a6ff);-webkit-background-clip:text;color:transparent}
+.sub{color:#c9c2d3;font-size:17px;line-height:1.7;max-width:570px}
+.glass{
+  margin-top:30px;padding:25px;border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.055);backdrop-filter:blur(20px);border-radius:28px;
+  box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+.question{font-size:24px;font-weight:700;margin-bottom:9px}
+.muted{color:#a9a2b5;font-size:14px;line-height:1.6}
+.btnrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+button{
+  border:0;border-radius:16px;padding:15px 18px;font:600 15px 'DM Sans';cursor:pointer;
+  transition:.22s transform,.22s box-shadow,.22s background;color:white;
+}
+.primary{background:linear-gradient(135deg,#ff4f91,#a65cff);box-shadow:0 10px 30px rgba(255,79,145,.22)}
+.secondary{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}
+button:hover{transform:translateY(-3px)} button:active{transform:scale(.97)}
+#response{display:none;margin-top:18px;padding:17px;border-radius:17px;background:rgba(255,94,150,.08);border:1px solid rgba(255,126,174,.16);color:#f9dbe7;line-height:1.65;font-size:14px}
+.section{padding:70px 16px 100px;max-width:680px;margin:auto}
+.section h2{font-family:'Playfair Display';font-size:36px;margin-bottom:12px}
+.quote{font-family:'Playfair Display';font-size:25px;line-height:1.5;color:#eee;margin:25px 0}
+.reasons{display:grid;gap:11px;margin-top:25px}
+.reason{padding:17px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);color:#d8d1df}
+.reason b{color:#fff}
+textarea{
+ width:100%;min-height:115px;resize:none;margin-top:18px;border-radius:17px;padding:16px;
+ background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.12);color:#fff;outline:none;
+ font:14px 'DM Sans';
+}
+textarea::placeholder{color:#7f778b}
+.send{width:100%;margin-top:10px}
+.footer{text-align:center;color:#716a79;font-size:12px;padding:0 20px 35px}
+.heart{position:fixed;bottom:-30px;font-size:18px;pointer-events:none;z-index:5;animation:rise linear forwards;opacity:.8}
+@keyframes rise{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+.reveal{opacity:0;transform:translateY(25px);transition:.8s}.reveal.show{opacity:1;transform:none}
+@media(max-width:500px){
+ .screen{padding-top:55px}.glass{padding:20px;border-radius:23px}.btnrow{grid-template-columns:1fr}
+ .sub{font-size:15px} h1{font-size:51px}
+}
+</style>
+</head>
+<body>
+<div class="noise"></div><div class="orb o1"></div><div class="orb o2"></div>
+
+<main class="screen">
+  <div class="card">
+    <div class="eyebrow"><span class="dot"></span> A tiny message for KUKU</div>
+    <h1>Hey <span class="gradient">KUKU.</span><br>ek baat puchun?</h1>
+    <p class="sub">
+      Pata nahi maine kuch galat kaha, kuch aisa kar diya,
+      ya bas tumhara mood mujhse baat karne ka nahi hai…
+      <br><br>
+      <b style="color:#fff">But honestly, mujhe samajh nahi aa raha.</b>
+    </p>
+
+    <div class="glass">
+      <div class="question">Tum mujhse baat kyun nahi kar rahi? 🥺</div>
+      <div class="muted">Gussa ho toh bata do. Hurt hui ho toh bata do. Meri galti hai toh woh bhi bata do. Bas mujhe guessing game mein mat rakho. ❤️</div>
+      <div class="btnrow">
+        <button class="primary" onclick="show('say')">Okay… bataungi 🥺</button>
+        <button class="secondary" onclick="show('time')">Mujhe thoda time chahiye</button>
+      </div>
+      <div id="response"></div>
+    </div>
+  </div>
+</main>
+
+<section class="section reveal">
+  <div class="eyebrow"><span class="dot"></span> No pressure</div>
+  <h2>Bas ek honest answer chahiye.</h2>
+  <p class="sub">Main tumse explanation force nahi kar raha. Mujhe bas itna nahi chahiye ki hum dono ke beech silence hi answer ban jaye.</p>
+  <div class="quote">“Kabhi-kabhi ek chhoti si baat clear kar dena, poori misunderstanding se better hota hai.”</div>
+
+  <div class="reasons">
+    <div class="reason">🌙 <b>Gussa hai?</b> — Mujhe bata do. Main sununga.</div>
+    <div class="reason">💭 <b>Maine hurt kiya?</b> — Tell me. I genuinely want to understand.</div>
+    <div class="reason">🫶 <b>Space chahiye?</b> — I’ll respect it. Bas bata dena.</div>
+    <div class="reason">🤍 <b>Bas baat nahi karni?</b> — That’s okay too. I’d rather know than assume.</div>
+  </div>
+</section>
+
+<section class="section reveal" style="padding-top:15px">
+  <div class="glass">
+    <div class="question">Agar words nahi mil rahe…</div>
+    <div class="muted">Yahin likh do. Long explanation ki zarurat nahi. Ek line bhi enough hai.</div>
+    <textarea id="msg" placeholder="“Kuku, actually mujhe…”"></textarea>
+    <button class="primary send" onclick="sendMsg()">Send this to my heart 💌</button>
+    <div id="sent" style="display:none;text-align:center;margin-top:15px;color:#ffb5ce;font-size:14px">Message saved here. Ab bas sach bol dena. 🤍</div>
+  </div>
+</section>
+
+<div class="footer">Made with slightly too much overthinking, a little courage & a lot of care. — for KUKU ❤️</div>
+
+<script>
+function show(type){
+ const r=document.getElementById('response');
+ r.style.display='block';
+ if(type==='say'){
+   r.innerHTML='🥺 <b>Thank you.</b> Bas itna hi toh chahiye tha — ek chance to understand. Jo bhi hai, bina filter bol dena. I promise I’ll listen.';
+ }else{
+   r.innerHTML='🌙 <b>Okay.</b> Take your time. Main tumhe pressure nahi dunga. Bas jab ready ho, ek chhota sa “baat kar sakti hoon” bhi kaafi hoga.';
+ }
+ burst();
+}
+function sendMsg(){
+ const m=document.getElementById('msg').value.trim();
+ if(!m){document.getElementById('msg').focus();return;}
+ document.getElementById('sent').style.display='block';
+ burst();
+}
+function burst(){
+ for(let i=0;i<12;i++){
+  const h=document.createElement('div');h.className='heart';h.textContent=['♥','♡','✦','💗'][Math.floor(Math.random()*4)];
+  h.style.left=(Math.random()*100)+'vw';h.style.animationDuration=(4+Math.random()*4)+'s';h.style.fontSize=(12+Math.random()*17)+'px';
+  document.body.appendChild(h);setTimeout(()=>h.remove(),8000);
+ }
+}
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(x=>obs.observe(x));
+setTimeout(burst,800);
+</script>
+</body>
+</html>
